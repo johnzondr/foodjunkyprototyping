@@ -1,0 +1,44 @@
+[{
+    "name": "Naansense",
+    "image": "image",
+    "cuisine": "Indian",
+    "stars": 3,
+    "price": 2,
+    "min_delivery": 30
+}, {
+    "name": "Naansense1",
+    "image": "image",
+    "cuisine": "Indian",
+    "stars": 3,
+    "price": 2,
+    "min_delivery": 30
+}, {
+    "name": "Naansense2",
+    "image": "image",
+    "cuisine": "Indian",
+    "stars": 3,
+    "price": 2,
+    "min_delivery": 30
+}, {
+    "name": "Naansense3",
+    "image": "image",
+    "cuisine": "Indian",
+    "stars": 3,
+    "price": 2,
+    "min_delivery": 30
+}, {
+    "name": "Naansense4",
+    "image": "image",
+    "cuisine": "Indian",
+    "stars": 3,
+    "price": 2,
+    "min_delivery": 30
+}, {
+    "name": "Naansense5",
+    "image": "image",
+    "cuisine": "Indian",
+    "stars": 3,
+    "price": 2,
+    "min_delivery": 30
+}]
+

@@ -1,0 +1,50 @@
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-2">
+			<h1>filters</h1>
+
+	        <form ng-submit="submit()">
+	            <div class="form-group">
+	                <input type="text" ng-model="keywords" class="form-control" />
+	            </div>
+	        </form>
+
+
+			<h3>Cuisines</h3>
+			<label ng-repeat="cuisine in cuisinesFilter">
+			  <input
+			    type="checkbox"
+			    name="selectedCuisines[]"
+			    value="{{cuisine.name}}"
+			    ng-model="cuisine.value"
+			    ng-checked="cuisine.value"
+			  > {{cuisine.name}}
+			</label>
+
+
+			<h3>Options</h3>
+			<label ng-repeat="option in optionsFilter">
+			  <input
+			    type="checkbox"
+			    name="selectedOptions[]"
+			    value="{{option.name}}"
+			    ng-model="option.value"
+			    ng-checked="option.value"
+			  > {{option.name}}
+			</label>
+
+
+		</div>
+		<div class="col-md-10">
+			<h1>results</h1>
+			<h3>Order for Me for Today at 2pm</h3>
+			<span ng-repeat="tag in tags">
+  				{{tag.name}}
+			</span>
+
+			<p ng-repeat="restaurant in restaurants">
+  				{{restaurant}}
+			</p>
+		</div>
+	</div>
+</div>
