@@ -7,12 +7,7 @@
 
         <!-- load bootstrap and fontawesome via CDN -->
         <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" />
-        <style>
-            html, body, input, select, textarea
-            {
-                font-size: 1.05em !important;
-            }
-        </style>
+        <link rel="stylesheet" href="css/style.css" />
         
         <!-- load angular via CDN -->
 
@@ -25,14 +20,17 @@
     <body>
 
         <header>
-			<nav class="navbar navbar-default">
+			<nav class="navbar navbar-default navbar-fixed-top">
 			<div class="container-fluid">
 				<div class="navbar-header">
-					<a class="navbar-brand" href="/">Foodjunky</a>
+					<a class="navbar-brand" href="/"><img src="assets/logo.png" /> </a>
 				</div>
 
 				<ul class="nav navbar-nav navbar-right">
-					<li><a href="#"><i class="fa fa-home"></i> Home</a></li>
+					<li><a href="#"><i class="fa fa-home"></i> 0 Item <img src="assets/bag.png" /> </a></li>
+
+                    <!-- <li><a href="#"> 0 Item </a></li> -->
+                    <!-- <li>Guest Order</li> -->
 				</ul>
 			</div>
 			</nav>

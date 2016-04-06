@@ -1,0 +1,171 @@
+//config
+
+$bright-orange: #F26030;
+$lighter-orange: #F57153;
+$text-brown: #7F6925;
+$text-black: #474747;
+$text-light-grey: #ADADAD;
+
+
+[ng-click] {
+	cursor: pointer;
+}
+
+
+body { padding-top: 65px;
+background-color: #FFFBF2 }
+
+//helpers
+
+.center-block {
+	text-align: center;
+}
+
+//navbar module
+.navbar {
+	margin-bottom: 0px;
+}
+.navbar-brand {
+	padding: 20px 25px;
+}
+.navbar-default {
+	background-color: $bright-orange;
+}
+
+.navbar-default .navbar-brand {
+	color: white;
+}
+
+
+.navbar-right {
+	img {
+	margin-left: 10px;
+	}
+}
+
+.navbar-nav>li {
+	margin-right: 10px
+}
+
+.navbar-default .navbar-nav>li>a {
+	color: #F7A78C;	
+}
+
+
+//filter module
+
+.filter-wrapper {
+	margin-bottom: 20px;
+}
+
+.filter {
+	background-color: #F6ECD4;
+	height:150vh;
+
+}
+
+//tags module
+.label {
+	padding: 10px 0px 10px 10px;
+}
+.label-tags {
+	background-color: $lighter-orange;
+	margin-right: 5px;
+	&__remove {
+		padding: 10px;
+	}
+}
+
+
+//restaurant cards module
+
+.restaurant-card {
+	background-color: #898989;
+	width: 20%;
+	display: inline-block;
+	margin: 1% 2%;
+	border: 1px solid #e6e6e6;
+	transition: all .2s ease-in-out;
+	text-align: left;
+
+	&:hover {
+		box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+		// transition: box-shadow 0.2s ease-in-out;
+		transition: all .2s ease-in-out;
+		transform: scale(1.1);
+		cursor: pointer;
+
+	}
+	&__image-wrap {
+		height: 150px;
+		overflow: hidden;
+		img {
+			width: 100%;
+		}
+	}
+
+	&__text-wrap {
+		height: 100px;
+		background-color: white;
+		padding: 12px;
+		position: relative;
+
+		h3 {
+			margin: 0;
+			font-size: 18px;
+			font-weight: 400;
+			color: $text-black;
+			letter-spacing: 1.5px;
+
+		}
+		h4 {
+			margin: 0;
+			margin-top: 3px;
+			margin-right: 5px;
+			font-size: 12px;
+			font-weight: 400;
+			color: $text-light-grey;
+			display: inline-block;
+			letter-spacing: 1.5px;
+		}
+		p {
+			position: absolute;
+			bottom: 0;
+			font-size: 9px;
+			letter-spacing: 1.5px;
+			color: $text-light-grey;
+			opacity: .9;
+			font-weight: 300;
+		}
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

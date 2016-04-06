@@ -1,0 +1,93 @@
+[ng-click] {
+  cursor: pointer; }
+
+body {
+  padding-top: 65px;
+  background-color: #FFFBF2; }
+
+.center-block {
+  text-align: center; }
+
+.navbar {
+  margin-bottom: 0px; }
+
+.navbar-brand {
+  padding: 20px 25px; }
+
+.navbar-default {
+  background-color: #F26030; }
+
+.navbar-default .navbar-brand {
+  color: white; }
+
+.navbar-right img {
+  margin-left: 10px; }
+
+.navbar-nav > li {
+  margin-right: 10px; }
+
+.navbar-default .navbar-nav > li > a {
+  color: #F7A78C; }
+
+.filter-wrapper {
+  margin-bottom: 20px; }
+
+.filter {
+  background-color: #F6ECD4;
+  height: 150vh; }
+
+.label {
+  padding: 10px 0px 10px 10px; }
+
+.label-tags {
+  background-color: #F57153;
+  margin-right: 5px; }
+  .label-tags__remove {
+    padding: 10px; }
+
+.restaurant-card {
+  background-color: #898989;
+  width: 20%;
+  display: inline-block;
+  margin: 1% 2%;
+  border: 1px solid #e6e6e6;
+  transition: all .2s ease-in-out;
+  text-align: left; }
+  .restaurant-card:hover {
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    transition: all .2s ease-in-out;
+    transform: scale(1.1);
+    cursor: pointer; }
+  .restaurant-card__image-wrap {
+    height: 150px;
+    overflow: hidden; }
+    .restaurant-card__image-wrap img {
+      width: 100%; }
+  .restaurant-card__text-wrap {
+    height: 100px;
+    background-color: white;
+    padding: 12px;
+    position: relative; }
+    .restaurant-card__text-wrap h3 {
+      margin: 0;
+      font-size: 18px;
+      font-weight: 400;
+      color: #474747;
+      letter-spacing: 1.5px; }
+    .restaurant-card__text-wrap h4 {
+      margin: 0;
+      margin-top: 3px;
+      margin-right: 5px;
+      font-size: 12px;
+      font-weight: 400;
+      color: #ADADAD;
+      display: inline-block;
+      letter-spacing: 1.5px; }
+    .restaurant-card__text-wrap p {
+      position: absolute;
+      bottom: 0;
+      font-size: 9px;
+      letter-spacing: 1.5px;
+      color: #ADADAD;
+      opacity: .9;
+      font-weight: 300; }

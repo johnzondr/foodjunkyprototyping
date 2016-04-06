@@ -1,11 +1,15 @@
 <div class="container-fluid">
 	<div class="row">
-		<div class="col-md-2">
+		<div class="col-md-2 filter">
 			<h1>filters</h1>
 
 	        <form ng-submit="submit()">
 	            <div class="form-group">
-	                <input type="text" ng-model="keywords" class="form-control" />
+	                <input 
+	                	placeholder="pizza, McDonalds, loop" 
+	                	type="text" 
+	                	ng-model="keywords" 
+	                	class="form-control" />
 	            </div>
 	        </form>
 
@@ -36,15 +40,36 @@
 
 		</div>
 		<div class="col-md-10">
-			<h1>results</h1>
-			<h3>Order for Me for Today at 2pm</h3>
-			<span ng-repeat="tag in tags">
-  				{{tag.name}}
-			</span>
-
-			<p ng-repeat="restaurant in restaurants">
+			<h3>Order for <a href="#">Me</a> for <a href="#">Today</a> at <a href="#">2pm</a></h3>
+			<div class="filter-wrapper" >
+<!-- 				<span class="label label-tags" ng-repeat="tag in tags" ng-if="tag.value">
+	  				{{tag.name}} <span class="label-tags__remove">x</span>
+				</span> -->
+				<filter-tags ng-repeat="tag in tags" ng-if="tag.value"></filter-tags>
+			</div>
+			<div class="row">
+				<div class="center-block">
+					<restaurant-card></restaurant-card>
+					<restaurant-card></restaurant-card>
+					<restaurant-card></restaurant-card>
+					<restaurant-card></restaurant-card>
+					<restaurant-card></restaurant-card>
+					<restaurant-card></restaurant-card>
+					<restaurant-card></restaurant-card>
+					<restaurant-card></restaurant-card>
+					<restaurant-card></restaurant-card>
+					<restaurant-card></restaurant-card>
+					<restaurant-card></restaurant-card>
+					<restaurant-card></restaurant-card>
+					<restaurant-card></restaurant-card>
+					<restaurant-card></restaurant-card>
+					<restaurant-card></restaurant-card>
+					<restaurant-card></restaurant-card>
+				</div>
+			</div>
+<!-- 			<p ng-repeat="restaurant in restaurants">
   				{{restaurant}}
-			</p>
+			</p> -->
 		</div>
 	</div>
 </div>

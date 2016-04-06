@@ -20,17 +20,18 @@ angular.module('foodjunky', ['ngRoute', 'ngResource'])
     var cuisines = ['Pizza', 'Chinese', 'Mexican', 'American', 'Hamburgers', 'Sushi', 'Indian'];
     var self = this;
     this.keywords = [];
-    this.priceRangeFilter = {name: 'Price Range', value: 2};
-    this.availableOnly = {name: 'Show Available Only', value: true};
+    this.priceRangeFilter = {name: 'Price Range', value: 2, type: "price"};
+    this.availableOnly = {name: 'Show Available Only', value: true, type: "available"};
     this.optionsFilter = [
-        {name: 'Delivery', value: true},
-        {name: 'Pickup', value: true},
-        {name: 'Catering Only', value: false}
+        {name: 'Delivery', value: true, type: "options"},
+        {name: 'Pickup', value: true, type: "options"},
+        {name: 'Catering Only', value: false, type: "options"}
     ];
     this.cuisinesFilter = cuisines.map(function(cuisine){
         obj = {};
         obj.value = false;
         obj.name = cuisine;
+        obj.type = "cuisine";
         return obj;
     });
 
@@ -51,7 +52,7 @@ angular.module('foodjunky', ['ngRoute', 'ngResource'])
 
         tags.push.apply(tags, optionsFilter);
         tags.push.apply(tags, cuisinesFilter);
-        // tags.push.apply(tags, keywords);
+        tags.push.apply(tags, keywords);
         if (priceRangeFilter.value) {
             var text = "";
             for (i = 0; i < priceRangeFilter.value; i++) {
@@ -103,16 +104,27 @@ angular.module('foodjunky', ['ngRoute', 'ngResource'])
         $scope.submit = function() {
             console.log('searching with keywords');
 
-            resultsFilterService.keywords.push.apply(resultsFilterService.keywords, $scope.keywords.split(" "));
+            var keywordsObj = $scope.keywords.split(" ").map(function(word){
+                obj = {};
+                obj.type = "keyword";
+                obj.value = "true";
+                obj.name = word;
+                return obj
+            })
+
+            resultsFilterService.keywords.push.apply(resultsFilterService.keywords, keywordsObj);
             $scope.tags = resultsFilterService.tags();
             $scope.keywords = ""
         };
 
 }])
 
-.controller('stateContainerController',['$scope', 
+.controller('filterTagsController',['$scope', 
     function($scope){
-
+        $scope.remove = function(tag) {
+            console.log(tag.name)
+            tag.value = false;
+        }
 
 }])
 
@@ -120,13 +132,18 @@ angular.module('foodjunky', ['ngRoute', 'ngResource'])
 //directives
 .directive('filterTags', function(){
     return {
-        scope: {
-
-        },
-        templateUrl: 'directives/filtertTags.html',
+        scope: false,
+        templateUrl: 'directives/filterTags.html',
         replace: true,
         controller: 'filterTagsController'
 
+    }
+})
+.directive('restaurantCard', function(){
+    return {
+        scope: false,
+        templateUrl: 'directives/restaurantCard.html',
+        replace: true,
     }
 })
 .directive('locationList', function(){
