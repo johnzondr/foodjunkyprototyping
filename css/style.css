@@ -165,6 +165,7 @@ body {
     color: #FFA18B; }
 
 .filter-header {
+  margin-top: 45px;
   margin-bottom: 20px; }
   .filter-header h1 {
     font-size: 26px;
@@ -175,6 +176,9 @@ body {
     font-weight: 500;
     font-size: 28px;
     text-decoration: underline; }
+
+.sort {
+  margin-left: 20px; }
 
 .scroll {
   margin-top: 12px; }

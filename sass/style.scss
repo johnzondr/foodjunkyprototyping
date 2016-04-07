@@ -248,6 +248,7 @@ background-color: #FFFBF2 }
 
 // filter heading
 .filter-header {
+	margin-top: 45px;
 	margin-bottom: 20px;
 
 	h1 {
@@ -262,6 +263,10 @@ background-color: #FFFBF2 }
 		font-size: 28px;
 		text-decoration: underline;	
 	}
+}
+
+.sort {
+	margin-left: 20px;
 }
 
 //infinite scroll

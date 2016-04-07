@@ -105,6 +105,7 @@ angular.module('foodjunky', ['ngRoute', 'ngResource'])
             $scope.restaurants = restaurants.data
         });
 
+        $scope.restaurantSort = 'Default';
         $scope.optionsFilter = resultsFilterService.optionsFilter;
         $scope.cuisinesFilter = resultsFilterService.cuisinesFilter;
         $scope.availableFilter = resultsFilterService.availableOnly;
@@ -112,6 +113,10 @@ angular.module('foodjunky', ['ngRoute', 'ngResource'])
         $scope.$watch('availableFilter', function () {
             $scope.tags = resultsFilterService.tags();
             $scope.loading('Getting search results for all restaurants');
+          }, true);
+
+        $scope.$watch('restaurantSort', function () {
+            $scope.loading('Getting sorted results for '+$scope.restaurantSort);
           }, true);
 
         $scope.$watch('optionsFilter', function () {

@@ -43,16 +43,30 @@
 
 		</div>
 		<div class="col-md-10">
-			<div class="filter-header">
-			<h1>Order for <a href="#">Me</a> for <a href="#">Today</a> at <a href="#">2pm</a></h1>
+			<div class="filter-header center-block">
+			<h1>Order for <a href="">Me</a> for <a href="">Today</a> at <a href="">2pm</a></h1>
 			</div>
-			<div class="filter-wrapper" >
+			<div class="filter-wrapper center-block" >
 				<filter-tags 
 					ng-repeat="tag in tags" 
 					ng-if="tag.value" />
 			</div>
 			<div class="row">
+				<div class="sort">
+				    <label for="restaurantSort"> Sort by: </label>
+				    <select 
+				    	name="resaurantSort" 
+				    	ng-model="restaurantSort"
+				    	ng-init="restaurantSort='Default'">
+				      <option value="popularity">Most Popular</option>
+				      <option value="reviews">Best Reviews</option>
+				      <option value="distance">Closest Distance</option>
+				      <option value="price">Lowest Price</option>
+				    </select>
+					</span>
+				</div>
 				<div class="center-block" ng-if="loaded">
+
 					<restaurant-card>
 						<img src="assets/rest3.png" />
 					</restaurant-card>
