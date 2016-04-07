@@ -8,13 +8,9 @@ angular.module('foodjunky', ['ngRoute', 'ngResource'])
             templateUrl: 'pages/search.html',
             controller: 'homeController'
         })
-
 })
 
 // services
-.service('restaurantsService', function($http) {
-    this.load = $http.get('/restaurants.json');
-})
 
 .service('backendService', function($timeout, $q){
 
@@ -41,7 +37,7 @@ angular.module('foodjunky', ['ngRoute', 'ngResource'])
     this.optionsFilter = [
         {name: 'Delivery', value: true, type: "options"},
         {name: 'Pickup', value: true, type: "options"},
-        {name: 'Catering Only', value: false, type: "options"}
+        // {name: 'Catering Only', value: false, type: "options"}
     ];
     this.cuisinesFilter = cuisines.map(function(cuisine){
         obj = {};
@@ -50,18 +46,6 @@ angular.module('foodjunky', ['ngRoute', 'ngResource'])
         obj.type = "cuisine";
         return obj;
     });
-
-
-    function toArray(objectsArray){
-        var arry = [];
-        for (i = 0; i < objectsArray.length; i++) {
-            if (objectsArray[i].value) {
-                arry.push(objectsArray[i].name)
-            }
-        };
-        
-        return arry;
-    };
 
     function getTags(cuisinesFilter, priceRangeFilter, optionsFilter, availableOnly, keywords) {
         var tags = [];
@@ -88,8 +72,6 @@ angular.module('foodjunky', ['ngRoute', 'ngResource'])
     };
 
     this.tags = function() {
-        //console.log(getTags(self.cuisinesFilter, self.priceRangeFilter, self.optionsFilter, self.availableOnly));
-        
         return getTags(self.cuisinesFilter, self.priceRangeFilter, self.optionsFilter, self.availableOnly, self.keywords);
     }
 
@@ -98,12 +80,9 @@ angular.module('foodjunky', ['ngRoute', 'ngResource'])
 
 //controllers
 
-.controller('homeController', ['$scope', 'resultsFilterService', 'restaurantsService', 'backendService',
-    function($scope, resultsFilterService, restaurantsService, backendService){
+.controller('homeController', ['$scope', 'resultsFilterService', 'backendService',
+    function($scope, resultsFilterService, backendService){
         $scope.tags = resultsFilterService.tags();
-        restaurantsService.load.then(function(restaurants){
-            $scope.restaurants = restaurants.data
-        });
 
         $scope.restaurantSort = 'Default';
         $scope.optionsFilter = resultsFilterService.optionsFilter;
@@ -144,6 +123,8 @@ angular.module('foodjunky', ['ngRoute', 'ngResource'])
             $scope.tags = resultsFilterService.tags();
             $scope.keywords = ""
         };
+
+        //logic to simulate loading
         $scope.loaded = false;
         $scope.loading = function(message) {
             $scope.loaded = false
@@ -199,7 +180,6 @@ angular.module('foodjunky', ['ngRoute', 'ngResource'])
                 $scope.priceRange[i].hover = false;
             }
         }
-
 }])
 
 .controller('filterTagsController',['$scope', 
@@ -219,7 +199,6 @@ angular.module('foodjunky', ['ngRoute', 'ngResource'])
         templateUrl: 'directives/priceFilter.html',
         replace: true,
         controller: 'priceFilterController'
-
     }
 })
 .directive('filterTags', function(){
@@ -228,7 +207,6 @@ angular.module('foodjunky', ['ngRoute', 'ngResource'])
         templateUrl: 'directives/filterTags.html',
         replace: true,
         controller: 'filterTagsController'
-
     }
 })
 .directive('restaurantCard', function(){
@@ -237,25 +215,6 @@ angular.module('foodjunky', ['ngRoute', 'ngResource'])
         templateUrl: 'directives/restaurantCard.html',
         replace: true,
         transclude: true
-    }
-})
-.directive('locationList', function(){
-    return {
-        scope: false,
-        templateUrl: 'directives/locationList.html',
-        replace: true
-
-    }
-})
-.directive('stateContainer', function(){
-    return {
-        scope: {
-            stateLocation: '=stateLocation',
-            selected:'='
-        },
-        templateUrl: 'directives/stateContainer.html',
-        replace: true,
-        controller: 'stateContainerController'
     }
 })
 

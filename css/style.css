@@ -39,7 +39,8 @@ body {
   margin-left: 10px; }
 
 .navbar-nav > li {
-  margin-right: 10px; }
+  margin-right: 10px;
+  border-left: 1px solid #F4845F; }
 
 .navbar-default .navbar-nav > li > a {
   color: #F7A78C; }
@@ -57,7 +58,9 @@ body {
       text-align: center;
       padding: 12px 0;
       border-right: 1px solid #E0E0E0;
-      color: #919191; }
+      color: #919191;
+      background-color: #57CC67;
+      color: white; }
     .filter form input {
       width: 83%;
       padding: 12px 0;

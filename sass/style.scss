@@ -66,7 +66,8 @@ background-color: #FFFBF2 }
 }
 
 .navbar-nav>li {
-	margin-right: 10px
+	margin-right: 10px;
+	border-left: 1px solid #F4845F;
 }
 
 .navbar-default .navbar-nav>li>a {
@@ -95,6 +96,8 @@ background-color: #FFFBF2 }
 			padding: 12px 0;
 			border-right: 1px solid #E0E0E0;
 			color: #919191;
+			background-color: #57CC67;
+			color: white;
 		}
 		input {
 			width: 83%;
