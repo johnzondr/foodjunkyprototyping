@@ -107,23 +107,26 @@ angular.module('foodjunky', ['ngRoute', 'ngResource'])
 
         $scope.optionsFilter = resultsFilterService.optionsFilter;
         $scope.cuisinesFilter = resultsFilterService.cuisinesFilter;
+        $scope.availableFilter = resultsFilterService.availableOnly;
 
-        // $scope.$watch('resultsFilterService.priceRangeFilter', function () {
-        //     console.log('yes')
-        //     $scope.tags = resultsFilterService.tags();
-        //   }, true);
+        $scope.$watch('availableFilter', function () {
+            $scope.tags = resultsFilterService.tags();
+            $scope.loading('Getting search results for all restaurants');
+          }, true);
 
         $scope.$watch('optionsFilter', function () {
             $scope.tags = resultsFilterService.tags();
+            $scope.loading('Getting search results for new options');
           }, true);
 
         $scope.$watch('cuisinesFilter', function () {
+            $scope.loading('Getting search results for new cuisines');
             $scope.tags = resultsFilterService.tags();
           }, true);
 
         $scope.submit = function() {
             console.log('searching with keywords');
-
+            $scope.loading('Getting search results for new keywords');
             var keywordsObj = $scope.keywords.split(" ").map(function(word){
                 obj = {};
                 obj.type = "keyword";
@@ -165,6 +168,7 @@ angular.module('foodjunky', ['ngRoute', 'ngResource'])
 
         $scope.$watch('priceRangeFilter', function (priceRangeFilter) {
             $scope.setState(priceRangeFilter.value,'selected')
+            $scope.loading('Getting search results for new price range');
             $scope.tags = resultsFilterService.tags();
           }, true);
 

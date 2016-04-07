@@ -28,6 +28,8 @@ textarea:focus, input:focus{
 body { padding-top: 65px;
 background-color: #FFFBF2 }
 
+
+
 //extend col-md-2 in production
 .col-md-2 {
 	padding: 0;
@@ -77,7 +79,7 @@ background-color: #FFFBF2 }
 
 .filter {
 	background-color: #F6ECD4;
-	height:170vh;
+	height:1300px;
 
 	&__checkbox-wrapper {
 		padding-left: 15px;
