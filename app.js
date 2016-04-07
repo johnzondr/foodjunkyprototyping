@@ -55,10 +55,11 @@ angular.module('foodjunky', ['ngRoute', 'ngResource'])
         tags.push.apply(tags, keywords);
         if (priceRangeFilter.value) {
             var text = "";
-            for (i = 0; i < priceRangeFilter.value; i++) {
+            for (var i = 0; i < priceRangeFilter.value; i++) {
                 text += "$";
             };
             text += " & less";
+            console.log(text)
             priceRangeFilter.name = text;
 
             tags.push(priceRangeFilter);
@@ -93,10 +94,10 @@ angular.module('foodjunky', ['ngRoute', 'ngResource'])
         $scope.optionsFilter = resultsFilterService.optionsFilter;
         $scope.cuisinesFilter = resultsFilterService.cuisinesFilter;
 
-        $scope.$watch('resultsFilterService.priceRangeFilter', function () {
-            console.log('yes')
-            $scope.tags = resultsFilterService.tags();
-          }, true);
+        // $scope.$watch('resultsFilterService.priceRangeFilter', function () {
+        //     console.log('yes')
+        //     $scope.tags = resultsFilterService.tags();
+        //   }, true);
 
         $scope.$watch('optionsFilter', function () {
             $scope.tags = resultsFilterService.tags();
@@ -136,26 +137,36 @@ angular.module('foodjunky', ['ngRoute', 'ngResource'])
         ];
 
 
+        $scope.setPriceValue = function(price) {
+            resultsFilterService.priceRangeFilter['value'] = price;
+        }
+
+        $scope.priceRangeFilter = resultsFilterService.priceRangeFilter;
+
+        $scope.$watch('priceRangeFilter', function (priceRangeFilter) {
+            
+            $scope.setState(priceRangeFilter.value,'selected')
+          }, true);
+
         $scope.setState = function(price,state) {
             if (state == 'selected') {
                 $scope.unhover();
-                resultsFilterService.priceRangeFilter['value'] = price;
-                console.log(resultsFilterService.priceRangeFilter)
+                resultsFilterService.tags()
             }
 
-
-            for (i = 0; i < $scope.priceRange.length; i++) { 
+            for (var i = 0; i < $scope.priceRange.length; i++) { 
                 if ($scope.priceRange[i].value <= price) {
                     $scope.priceRange[i][state] = true
                 } else {
-                    console.log('higher');
                     $scope.priceRange[i][state] = false
                 }
             }
+
+
         };
 
         $scope.unhover = function() {
-            for(i=0; i< $scope.priceRange.length; i++) {
+            for(var i=0; i< $scope.priceRange.length; i++) {
                 $scope.priceRange[i].hover = false;
             }
         }
@@ -175,7 +186,7 @@ angular.module('foodjunky', ['ngRoute', 'ngResource'])
 //directives
 .directive('priceFilter', function(){
     return {
-        scope: {},
+        scope: false,
         templateUrl: 'directives/priceFilter.html',
         replace: true,
         controller: 'priceFilterController'

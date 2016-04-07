@@ -20,10 +20,18 @@ p, div {
     font-family: 'lato';
 }
 
-
+textarea:focus, input:focus{
+    outline: none;
+    display: inline-block;
+}
 
 body { padding-top: 65px;
 background-color: #FFFBF2 }
+
+//extend col-md-2 in production
+.col-md-2 {
+	padding: 0;
+}
 
 //helpers
 
@@ -64,13 +72,34 @@ background-color: #FFFBF2 }
 
 //filter module
 
-.filter-wrapper {
-	margin-bottom: 50px;
-}
 
 .filter {
 	background-color: #F6ECD4;
 	height:150vh;
+
+	&__checkbox-wrapper {
+		padding-left: 15px;
+	}
+
+	form {
+		position: relative;
+		background-color: #F3F3F3;
+
+		span {
+			width: 15%;
+			text-align: center;
+			padding: 12px 0;
+			border-right: 1px solid #E0E0E0;
+			color: #919191;
+		}
+		input {
+			width: 83%;
+			padding: 12px 0;
+			background-color: transparent;
+			border: 0;
+			color: $text-grey;
+		}
+	}
 	
 	//should fix all these being called labels
 	label {
@@ -89,6 +118,10 @@ background-color: #FFFBF2 }
 }
 
 //tags module
+
+.filter-wrapper {
+	margin-bottom: 50px;
+}
 .label {
 	padding: 10px 0px 10px 10px;
 	font-weight: 400;

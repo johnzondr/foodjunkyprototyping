@@ -7,9 +7,16 @@ h1, h2, h3, h4, h5, h6 {
 p, div {
   font-family: 'lato'; }
 
+textarea:focus, input:focus {
+  outline: none;
+  display: inline-block; }
+
 body {
   padding-top: 65px;
   background-color: #FFFBF2; }
+
+.col-md-2 {
+  padding: 0; }
 
 .center-block {
   text-align: center; }
@@ -35,12 +42,26 @@ body {
 .navbar-default .navbar-nav > li > a {
   color: #F7A78C; }
 
-.filter-wrapper {
-  margin-bottom: 50px; }
-
 .filter {
   background-color: #F6ECD4;
   height: 150vh; }
+  .filter__checkbox-wrapper {
+    padding-left: 15px; }
+  .filter form {
+    position: relative;
+    background-color: #F3F3F3; }
+    .filter form span {
+      width: 15%;
+      text-align: center;
+      padding: 12px 0;
+      border-right: 1px solid #E0E0E0;
+      color: #919191; }
+    .filter form input {
+      width: 83%;
+      padding: 12px 0;
+      background-color: transparent;
+      border: 0;
+      color: #484848; }
   .filter label {
     padding-left: 20px;
     color: #484848;
@@ -51,6 +72,9 @@ body {
     font-size: 18px;
     font-weight: 400;
     color: #484848; }
+
+.filter-wrapper {
+  margin-bottom: 50px; }
 
 .label {
   padding: 10px 0px 10px 10px;
