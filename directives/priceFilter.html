@@ -1,0 +1,5 @@
+<div>
+
+<span class="price-filter" ng-class="{'hover':price.hover, 'selected':price.selected}" ng-repeat="price in priceRange track by $index" ng-click="setState(price.value, 'selected')" ng-mouseenter="setState(price.value, 'hover')" ng-mouseleave="unhover()">$</span>
+
+</div>

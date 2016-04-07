@@ -59,6 +59,7 @@ angular.module('foodjunky', ['ngRoute', 'ngResource'])
                 text += "$";
             };
             text += " & less";
+            priceRangeFilter.name = text;
 
             tags.push(priceRangeFilter);
         };
@@ -92,12 +93,16 @@ angular.module('foodjunky', ['ngRoute', 'ngResource'])
         $scope.optionsFilter = resultsFilterService.optionsFilter;
         $scope.cuisinesFilter = resultsFilterService.cuisinesFilter;
 
-
-        $scope.$watch('optionsFilter|filter:{value:true}', function () {
+        $scope.$watch('resultsFilterService.priceRangeFilter', function () {
+            console.log('yes')
             $scope.tags = resultsFilterService.tags();
           }, true);
 
-        $scope.$watch('cuisinesFilter|filter:{value:true}', function () {
+        $scope.$watch('optionsFilter', function () {
+            $scope.tags = resultsFilterService.tags();
+          }, true);
+
+        $scope.$watch('cuisinesFilter', function () {
             $scope.tags = resultsFilterService.tags();
           }, true);
 
@@ -117,6 +122,44 @@ angular.module('foodjunky', ['ngRoute', 'ngResource'])
             $scope.keywords = ""
         };
 
+
+
+}])
+
+.controller('priceFilterController',['$scope', 'resultsFilterService', 
+    function($scope, resultsFilterService){
+        $scope.priceRange = [
+            {value: 1, hover: false, selected:false},
+            {value: 2, hover: false, selected:false},
+            {value: 3, hover: false, selected:false},
+            {value: 4, hover: false, selected:false},
+        ];
+
+
+        $scope.setState = function(price,state) {
+            if (state == 'selected') {
+                $scope.unhover();
+                resultsFilterService.priceRangeFilter['value'] = price;
+                console.log(resultsFilterService.priceRangeFilter)
+            }
+
+
+            for (i = 0; i < $scope.priceRange.length; i++) { 
+                if ($scope.priceRange[i].value <= price) {
+                    $scope.priceRange[i][state] = true
+                } else {
+                    console.log('higher');
+                    $scope.priceRange[i][state] = false
+                }
+            }
+        };
+
+        $scope.unhover = function() {
+            for(i=0; i< $scope.priceRange.length; i++) {
+                $scope.priceRange[i].hover = false;
+            }
+        }
+
 }])
 
 .controller('filterTagsController',['$scope', 
@@ -130,6 +173,15 @@ angular.module('foodjunky', ['ngRoute', 'ngResource'])
 
 
 //directives
+.directive('priceFilter', function(){
+    return {
+        scope: {},
+        templateUrl: 'directives/priceFilter.html',
+        replace: true,
+        controller: 'priceFilterController'
+
+    }
+})
 .directive('filterTags', function(){
     return {
         scope: false,

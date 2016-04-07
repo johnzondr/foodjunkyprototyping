@@ -5,11 +5,21 @@ $lighter-orange: #F57153;
 $text-brown: #7F6925;
 $text-black: #474747;
 $text-light-grey: #ADADAD;
-
+$text-grey: #484848;
+$dark-orange: #C74B2E;
 
 [ng-click] {
 	cursor: pointer;
 }
+
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: "lato";
+}
+p, div {
+    font-family: 'lato';
+}
+
 
 
 body { padding-top: 65px;
@@ -55,22 +65,44 @@ background-color: #FFFBF2 }
 //filter module
 
 .filter-wrapper {
-	margin-bottom: 20px;
+	margin-bottom: 50px;
 }
 
 .filter {
 	background-color: #F6ECD4;
 	height:150vh;
+	
+	//should fix all these being called labels
+	label {
+		padding-left: 20px;
+		color: $text-grey;
+		font-weight: 400;
+		display: block;
+		letter-spacing: 1.1px;
+	}
+	h3 {
+		font-size: 18px;
+		font-weight: 400;
+		color: $text-grey;
+	}
 
 }
 
 //tags module
 .label {
 	padding: 10px 0px 10px 10px;
+	font-weight: 400;
+	font-size: 12px;
+	letter-spacing: 1px;
 }
 .label-tags {
 	background-color: $lighter-orange;
 	margin-right: 5px;
+	transition: all .1s ease-in-out;
+	
+	&:hover {
+		background-color: $dark-orange;
+	}
 	&__remove {
 		padding: 10px;
 	}
@@ -128,6 +160,11 @@ background-color: #FFFBF2 }
 			display: inline-block;
 			letter-spacing: 1.5px;
 		}
+		.price {
+			position: absolute;
+			bottom: 25px;
+			display:block;
+		}
 		p {
 			position: absolute;
 			bottom: 0;
@@ -137,23 +174,57 @@ background-color: #FFFBF2 }
 			opacity: .9;
 			font-weight: 300;
 		}
+
+		p.location {
+			position: absolute;
+			bottom: 0;
+			right: 12px;
+			font-size: 9px;
+			letter-spacing: 1.5px;
+			color: $text-light-grey;
+			opacity: .9;
+			font-weight: 300;
+		}
+	}
+}
+
+// price filter module
+
+.price-filter {
+	color: $text-light-grey;
+	font-size: 20px;
+	padding: 5px;
+
+	&:hover {
+		cursor: pointer;
+	}
+
+	&.selected {
+		color: $bright-orange;
+	}
+	&.hover {
+		color: #FFA18B; 
 	}
 }
 
 
 
+// filter heading
+.filter-header {
+	margin-bottom: 20px;
 
+	h1 {
+		font-size: 26px;
+		font-weight: 300;
+		font-color: $text-light-grey;
+	}
 
-
-
-
-
-
-
-
-
-
-
+	a {
+		color: $bright-orange;
+		font-weight: 500;
+		font-size: 28px;	
+	}
+}
 
 
 

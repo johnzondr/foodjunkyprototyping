@@ -24,7 +24,8 @@
 			    ng-checked="cuisine.value"
 			  > {{cuisine.name}}
 			</label>
-
+			<h3>Price Range</h3>
+			<price-filter > </price-filter>
 
 			<h3>Options</h3>
 			<label ng-repeat="option in optionsFilter">
@@ -40,12 +41,13 @@
 
 		</div>
 		<div class="col-md-10">
-			<h3>Order for <a href="#">Me</a> for <a href="#">Today</a> at <a href="#">2pm</a></h3>
+			<div class="filter-header">
+			<h1>Order for <a href="#">Me</a> for <a href="#">Today</a> at <a href="#">2pm</a></h1>
+		</div>
 			<div class="filter-wrapper" >
-<!-- 				<span class="label label-tags" ng-repeat="tag in tags" ng-if="tag.value">
-	  				{{tag.name}} <span class="label-tags__remove">x</span>
-				</span> -->
-				<filter-tags ng-repeat="tag in tags" ng-if="tag.value"></filter-tags>
+				<filter-tags 
+					ng-repeat="tag in tags" 
+					ng-if="tag.value" />
 			</div>
 			<div class="row">
 				<div class="center-block">

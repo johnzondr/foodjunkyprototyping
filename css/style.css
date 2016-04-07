@@ -1,6 +1,12 @@
 [ng-click] {
   cursor: pointer; }
 
+h1, h2, h3, h4, h5, h6 {
+  font-family: "lato"; }
+
+p, div {
+  font-family: 'lato'; }
+
 body {
   padding-top: 65px;
   background-color: #FFFBF2; }
@@ -30,18 +36,34 @@ body {
   color: #F7A78C; }
 
 .filter-wrapper {
-  margin-bottom: 20px; }
+  margin-bottom: 50px; }
 
 .filter {
   background-color: #F6ECD4;
   height: 150vh; }
+  .filter label {
+    padding-left: 20px;
+    color: #484848;
+    font-weight: 400;
+    display: block;
+    letter-spacing: 1.1px; }
+  .filter h3 {
+    font-size: 18px;
+    font-weight: 400;
+    color: #484848; }
 
 .label {
-  padding: 10px 0px 10px 10px; }
+  padding: 10px 0px 10px 10px;
+  font-weight: 400;
+  font-size: 12px;
+  letter-spacing: 1px; }
 
 .label-tags {
   background-color: #F57153;
-  margin-right: 5px; }
+  margin-right: 5px;
+  transition: all .1s ease-in-out; }
+  .label-tags:hover {
+    background-color: #C74B2E; }
   .label-tags__remove {
     padding: 10px; }
 
@@ -83,6 +105,10 @@ body {
       color: #ADADAD;
       display: inline-block;
       letter-spacing: 1.5px; }
+    .restaurant-card__text-wrap .price {
+      position: absolute;
+      bottom: 25px;
+      display: block; }
     .restaurant-card__text-wrap p {
       position: absolute;
       bottom: 0;
@@ -91,3 +117,34 @@ body {
       color: #ADADAD;
       opacity: .9;
       font-weight: 300; }
+    .restaurant-card__text-wrap p.location {
+      position: absolute;
+      bottom: 0;
+      right: 12px;
+      font-size: 9px;
+      letter-spacing: 1.5px;
+      color: #ADADAD;
+      opacity: .9;
+      font-weight: 300; }
+
+.price-filter {
+  color: #ADADAD;
+  font-size: 20px;
+  padding: 5px; }
+  .price-filter:hover {
+    cursor: pointer; }
+  .price-filter.selected {
+    color: #F26030; }
+  .price-filter.hover {
+    color: #FFA18B; }
+
+.filter-header {
+  margin-bottom: 20px; }
+  .filter-header h1 {
+    font-size: 26px;
+    font-weight: 300;
+    font-color: #ADADAD; }
+  .filter-header a {
+    color: #F26030;
+    font-weight: 500;
+    font-size: 28px; }
