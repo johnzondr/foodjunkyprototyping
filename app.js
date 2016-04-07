@@ -16,6 +16,22 @@ angular.module('foodjunky', ['ngRoute', 'ngResource'])
     this.load = $http.get('/restaurants.json');
 })
 
+.service('backendService', function($timeout, $q){
+
+    this.fetch = function(message) {
+        console.info('Sending AJAX request to backend for...')
+        console.info(message)
+
+      var deferred = $q.defer();
+        $timeout(function() {
+            console.info('Returning results..')
+            deferred.resolve(true);
+        }, 2000);
+
+      return deferred.promise;
+    }
+})
+
 .service('resultsFilterService', function(){
     var cuisines = ['Pizza', 'Chinese', 'Mexican', 'American', 'Hamburgers', 'Sushi', 'Indian'];
     var self = this;
@@ -59,7 +75,6 @@ angular.module('foodjunky', ['ngRoute', 'ngResource'])
                 text += "$";
             };
             text += " & less";
-            console.log(text)
             priceRangeFilter.name = text;
 
             tags.push(priceRangeFilter);
@@ -83,10 +98,9 @@ angular.module('foodjunky', ['ngRoute', 'ngResource'])
 
 //controllers
 
-.controller('homeController', ['$scope', 'resultsFilterService', 'restaurantsService',
-    function($scope, resultsFilterService, restaurantsService){
+.controller('homeController', ['$scope', 'resultsFilterService', 'restaurantsService', 'backendService',
+    function($scope, resultsFilterService, restaurantsService, backendService){
         $scope.tags = resultsFilterService.tags();
-        console.log(resultsFilterService.tags());
         restaurantsService.load.then(function(restaurants){
             $scope.restaurants = restaurants.data
         });
@@ -122,8 +136,14 @@ angular.module('foodjunky', ['ngRoute', 'ngResource'])
             $scope.tags = resultsFilterService.tags();
             $scope.keywords = ""
         };
-
-
+        $scope.loaded = false;
+        $scope.loading = function(message) {
+            $scope.loaded = false
+            return backendService.fetch(message).then(function() {
+                $scope.loaded = true
+            })
+        }
+        $scope.loading('Getting search results');
 
 }])
 
@@ -144,8 +164,8 @@ angular.module('foodjunky', ['ngRoute', 'ngResource'])
         $scope.priceRangeFilter = resultsFilterService.priceRangeFilter;
 
         $scope.$watch('priceRangeFilter', function (priceRangeFilter) {
-            
             $scope.setState(priceRangeFilter.value,'selected')
+            $scope.tags = resultsFilterService.tags();
           }, true);
 
         $scope.setState = function(price,state) {
@@ -207,6 +227,7 @@ angular.module('foodjunky', ['ngRoute', 'ngResource'])
         scope: false,
         templateUrl: 'directives/restaurantCard.html',
         replace: true,
+        transclude: true
     }
 })
 .directive('locationList', function(){

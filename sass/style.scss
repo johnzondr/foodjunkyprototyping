@@ -42,12 +42,14 @@ background-color: #FFFBF2 }
 //navbar module
 .navbar {
 	margin-bottom: 0px;
+	box-shadow: 0 2px 2px 0 rgba(74,74,74,.3);
 }
 .navbar-brand {
 	padding: 20px 25px;
 }
 .navbar-default {
 	background-color: $bright-orange;
+	border: 0;
 }
 
 .navbar-default .navbar-brand {
@@ -75,7 +77,7 @@ background-color: #FFFBF2 }
 
 .filter {
 	background-color: #F6ECD4;
-	height:150vh;
+	height:170vh;
 
 	&__checkbox-wrapper {
 		padding-left: 15px;
@@ -165,7 +167,7 @@ background-color: #FFFBF2 }
 		height: 150px;
 		overflow: hidden;
 		img {
-			width: 100%;
+			height: 103%;
 		}
 	}
 
@@ -255,21 +257,13 @@ background-color: #FFFBF2 }
 	a {
 		color: $bright-orange;
 		font-weight: 500;
-		font-size: 28px;	
+		font-size: 28px;
+		text-decoration: underline;	
 	}
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+//infinite scroll
+.scroll {
+	margin-top: 12px;
+}
 

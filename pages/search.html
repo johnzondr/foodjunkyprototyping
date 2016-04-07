@@ -45,35 +45,36 @@
 		<div class="col-md-10">
 			<div class="filter-header">
 			<h1>Order for <a href="#">Me</a> for <a href="#">Today</a> at <a href="#">2pm</a></h1>
-		</div>
+			</div>
 			<div class="filter-wrapper" >
 				<filter-tags 
 					ng-repeat="tag in tags" 
 					ng-if="tag.value" />
 			</div>
 			<div class="row">
-				<div class="center-block">
-					<restaurant-card></restaurant-card>
-					<restaurant-card></restaurant-card>
-					<restaurant-card></restaurant-card>
-					<restaurant-card></restaurant-card>
-					<restaurant-card></restaurant-card>
-					<restaurant-card></restaurant-card>
-					<restaurant-card></restaurant-card>
-					<restaurant-card></restaurant-card>
-					<restaurant-card></restaurant-card>
-					<restaurant-card></restaurant-card>
-					<restaurant-card></restaurant-card>
-					<restaurant-card></restaurant-card>
-					<restaurant-card></restaurant-card>
-					<restaurant-card></restaurant-card>
-					<restaurant-card></restaurant-card>
-					<restaurant-card></restaurant-card>
+				<div class="center-block" ng-if="loaded">
+					<restaurant-card>
+						<img src="assets/rest3.png" />
+					</restaurant-card>
+					<restaurant-card><img src="assets/rest1.png" /></restaurant-card>
+					<restaurant-card><img src="assets/rest2.png" /></restaurant-card>
+					<restaurant-card><img src="assets/rest4.png" /></restaurant-card>
+					<restaurant-card><img src="assets/rest5.png" /></restaurant-card>
+					<restaurant-card><img src="assets/rest6.png" /></restaurant-card>
+					<restaurant-card><img src="assets/rest7.png" /></restaurant-card>
+					<restaurant-card><img src="assets/rest8.png" /></restaurant-card>
+					<restaurant-card><img src="assets/rest9.png" /></restaurant-card>
+					<restaurant-card><img src="assets/rest10.png" /></restaurant-card>
+					<restaurant-card><img src="assets/rest11.png" /></restaurant-card>
+					<restaurant-card><img src="assets/rest3.png" />
+					</restaurant-card>
+					<restaurant-card><img src="assets/rest1.png" /></restaurant-card>
+					<restaurant-card><img src="assets/rest2.png" /></restaurant-card>
+					<restaurant-card><img src="assets/rest4.png" /></restaurant-card>
+					<restaurant-card><img src="assets/rest5.png" /></restaurant-card>
 				</div>
 			</div>
-<!-- 			<p ng-repeat="restaurant in restaurants">
-  				{{restaurant}}
-			</p> -->
+			<img class="scroll center-block" src="assets/scroll.svg">
 		</div>
 	</div>
 </div>

@@ -22,13 +22,15 @@ body {
   text-align: center; }
 
 .navbar {
-  margin-bottom: 0px; }
+  margin-bottom: 0px;
+  box-shadow: 0 2px 2px 0 rgba(74, 74, 74, 0.3); }
 
 .navbar-brand {
   padding: 20px 25px; }
 
 .navbar-default {
-  background-color: #F26030; }
+  background-color: #F26030;
+  border: 0; }
 
 .navbar-default .navbar-brand {
   color: white; }
@@ -44,7 +46,7 @@ body {
 
 .filter {
   background-color: #F6ECD4;
-  height: 150vh; }
+  height: 170vh; }
   .filter__checkbox-wrapper {
     padding-left: 15px; }
   .filter form {
@@ -108,7 +110,7 @@ body {
     height: 150px;
     overflow: hidden; }
     .restaurant-card__image-wrap img {
-      width: 100%; }
+      height: 103%; }
   .restaurant-card__text-wrap {
     height: 100px;
     background-color: white;
@@ -171,4 +173,8 @@ body {
   .filter-header a {
     color: #F26030;
     font-weight: 500;
-    font-size: 28px; }
+    font-size: 28px;
+    text-decoration: underline; }
+
+.scroll {
+  margin-top: 12px; }
